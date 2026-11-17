@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "scenarioName": "main-push",
+  "upstreamRepository": "f/prompts.chat",
+  "event": "push",
+  "headSha": "1dc18fd955e8fdc9da3542ab3a4b3b2c2b2c6dd4",
+  "retrievedAt": "2026-11-16T18:42:43.016Z",
+  "runs": [
+    {
+      "runId": 41604056150,
+      "attempt": 1,
+      "workflowPath": ".github/workflows/ci.yml",
+      "workflowName": "CI",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "htmlUrl": "https://github.com/f/prompts.chat/actions/runs/41604056150",
+      "createdAt": "2026-11-03T08:32:38Z",
+      "startedAt": "2026-11-03T08:32:38Z",
+      "jobs": [
+        {
+          "id": 125809413766,
+          "name": "Test",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-03T08:32:58Z",
+          "completedAt": "2026-11-03T08:34:17Z",
+          "durationSeconds": 79,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 2,
+              "name": "Checkout repository",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 3,
+              "name": "Setup Node.js",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 4,
+              "name": "Install dependencies",
+              "conclusion": "success",
+              "durationSeconds": 21
+            },
+            {
+              "number": 5,
+              "name": "Run linter",
+              "conclusion": "success",
+              "durationSeconds": 17
+            },
+            {
+              "number": 6,
+              "name": "Run tests",
+              "conclusion": "success",
+              "durationSeconds": 22
+            },
+            {
+              "number": 11,
+              "name": "Post Setup Node.js",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 12,
+              "name": "Post Checkout repository",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 13,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "runId": 41604056190,
+      "attempt": 1,
+      "workflowPath": ".github/workflows/docker-publish.yml",
+      "workflowName": "Build and Publish Docker Image",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "htmlUrl": "https://github.com/f/prompts.chat/actions/runs/41604056190",
+      "createdAt": "2026-11-03T08:32:38Z",
+      "startedAt": "2026-11-03T08:32:38Z",
+      "jobs": [
+        {
+          "id": 125809413876,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-03T08:32:40Z",
+          "completedAt": "2026-11-03T08:34:13Z",
+          "durationSeconds": 93,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 2,
+              "name": "Checkout repository",
+              "conclusion": "success",
+              "durationSeconds": 4
+            },
+            {
+              "number": 3,
+              "name": "Setup Node.js",
+              "conclusion": "success",
+              "durationSeconds": 7
+            },
+            {
+              "number": 4,
+              "name": "Install dependencies",
+              "conclusion": "success",
+              "durationSeconds": 39
+            },
+            {
+              "number": 5,
+              "name": "Run tests",
+              "conclusion": "success",
+              "durationSeconds": 38
+            },
+            {
+              "number": 9,
+              "name": "Post Setup Node.js",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 10,
+              "name": "Post Checkout repository",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 11,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        },
+        {
+          "id": 125810055772,
+          "name": "build-and-push",
+          "status": "completed",
+          "conclusion": "success",
+          "startedAt": "2026-11-03T08:34:15Z",
+          "completedAt": "2026-11-03T09:10:58Z",
+          "durationSeconds": 2203,
+          "labels": [
+            "ubuntu-latest"
+          ],
+          "steps": [
+            {
+              "number": 1,
+              "name": "Set up job",
+              "conclusion": "success",
+              "durationSeconds": 3
+            },
+            {
+              "number": 2,
+              "name": "Checkout repository",
+              "conclusion": "success",
+              "durationSeconds": 6
+            },
+            {
+              "number": 3,
+              "name": "Set up Docker Buildx",
+              "conclusion": "success",
+              "durationSeconds": 5
+            },
+            {
+              "number": 4,
+              "name": "Log in to Container Registry",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 5,
+              "name": "Extract metadata (tags, labels)",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 6,
+              "name": "Build and push Docker image",
+              "conclusion": "success",
+              "durationSeconds": 2147
+            },
+            {
+              "number": 9,
+              "name": "Post Build and push Docker image",
+              "conclusion": "success",
+              "durationSeconds": 2
+            },
+            {
+              "number": 10,
+              "name": "Post Log in to Container Registry",
+              "conclusion": "success",
+              "durationSeconds": 1
+            },
+            {
+              "number": 11,
+              "name": "Post Set up Docker Buildx",
+              "conclusion": "success",
+              "durationSeconds": 34
+            },
+            {
+              "number": 12,
+              "name": "Post Checkout repository",
+              "conclusion": "success",
+              "durationSeconds": 0
+            },
+            {
+              "number": 13,
+              "name": "Complete job",
+              "conclusion": "success",
+              "durationSeconds": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "wallClockSeconds": 2300,
+    "runnerSeconds": 2375
+  }
+}

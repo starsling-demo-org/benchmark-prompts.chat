@@ -1,0 +1,4739 @@
+[
+  {
+    "sampleId": "full-1-main-push-cold-rep1-starsling-baseline",
+    "inputFingerprint": "7f0313b07fb5fded9bcd12f5160e513339e0812824e24e3e066a246122f84e38",
+    "runIds": [
+      43968280666,
+      43968280839
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-baseline/tests.json",
+        "sha256": "6805ea6a99625eb76a47f1edd2988ca1fe88c55067c624194decf7f4e65a857e",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-baseline/cache.json",
+        "sha256": "c195273da4073440f3f52a018a61202a1f78b6704537d032c172423c016845d7",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-baseline/coverage.json",
+        "sha256": "c05102b3bd5b06ff8815e238dcce0ab258b0a40619aeecb1e99ed49540344c7d",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/ci.yml",
+          ".github/workflows/docker-publish.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/reset-credits.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/update-contributors.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/ci.yml",
+            "workflowName": "CI",
+            "jobId": "test",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker-publish.yml",
+            "workflowName": "Build and Publish Docker Image",
+            "jobId": "test",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker-publish.yml",
+            "workflowName": "Build and Publish Docker Image",
+            "jobId": "build-and-push",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/ci.yml#test",
+          ".github/workflows/docker-publish.yml#test",
+          ".github/workflows/docker-publish.yml#build-and-push"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "image-test-gate",
+        "lint",
+        "release-image:linux/amd64",
+        "release-image:linux/arm64",
+        "unit-tests"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/docker-publish.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/ci.yml#test": 1,
+        ".github/workflows/docker-publish.yml#test": 1,
+        ".github/workflows/docker-publish.yml#build-and-push": 1
+      },
+      "observedCommands": [
+        "RUN npm ci",
+        "RUN npm install --no-save prisma@6.19 dotenv",
+        "RUN npm run build",
+        "npm ci",
+        "npm run lint",
+        "npm test"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "ci/lint:eslint",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/npm-ci",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-categories.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-prompt-trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-tags.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-users.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-team-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/collection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-flag.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-operations.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comments.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/health.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/improve-prompt.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/leaderboard.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-bots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-handler.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-server.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/pin.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-bot-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-connections.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-feature.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-unlist.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompts-id.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/register.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/reports.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/search.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-notifications.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-profile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/versions.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/bot-page-slug-redirect.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/listing-layouts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/prompts-list-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/sitemap.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-computer-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-form-computer.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-pairing-picker.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-teams-graph-card.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/chip-list-diff.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/connector-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/copy-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/create-menu.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/discovery-prompts.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/featured-teams.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/header-nav.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/injected-action-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/spacefast-widget.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/structured-data.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/upvote-ui.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/hooks/use-debounce.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/hooks/use-mobile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/action-buttons.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/auth/provider-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-computer-requirement.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-platforms.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-slug-lookup.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-upsert.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/change-snapshots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/connector-registry.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/date.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/format.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/hf-data-studio.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/list-diff.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/listing-pagination.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/mcp-client-config.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/github.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/oauth.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/oidc.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/prompt-access.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/prompt-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/related-content.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/seo.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/similarity.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/skill-files.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/slug.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/team-graph-widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/urls.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/utils.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/variable-detection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/webhook.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/works-best-with.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/components/book/elements/harness-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/components/book/elements/tools-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:total",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "deps:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "deps:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/npm-ci",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-categories.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-prompt-trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-tags.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-users.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-team-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/collection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-flag.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-operations.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comments.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/health.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/improve-prompt.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/leaderboard.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-bots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-handler.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-server.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/pin.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-bot-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-connections.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-feature.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-unlist.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompts-id.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/register.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/reports.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/search.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-notifications.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-profile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/versions.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/bot-page-slug-redirect.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/listing-layouts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/prompts-list-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/sitemap.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-computer-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-form-computer.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-pairing-picker.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-teams-graph-card.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/chip-list-diff.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/connector-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/copy-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/create-menu.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/discovery-prompts.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/featured-teams.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/header-nav.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/injected-action-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/spacefast-widget.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/structured-data.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/upvote-ui.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/hooks/use-debounce.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/hooks/use-mobile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/action-buttons.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/auth/provider-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-computer-requirement.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-platforms.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-slug-lookup.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-upsert.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/change-snapshots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/connector-registry.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/date.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/format.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/hf-data-studio.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/list-diff.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/listing-pagination.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/mcp-client-config.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/github.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/oauth.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/oidc.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/prompt-access.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/prompt-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/related-content.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/seo.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/similarity.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/skill-files.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/slug.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/team-graph-widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/urls.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/utils.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/variable-detection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/webhook.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/works-best-with.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/components/book/elements/harness-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/components/book/elements/tools-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:total",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "next-build:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "next-build:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "prisma-cli:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "prisma-cli:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 203,
+          "total": 203,
+          "percentage": 100
+        },
+        "scopeHash": "7b98d0c4863b7995bce02527e88132528b9643fbcc73fcd5084bc21973eb236e"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep1-starsling-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "1dc18fd955e8fdc9da3542ab3a4b3b2c2b2c6dd4",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [
+        {
+          "cacheKey": "buildkit-gha",
+          "requestedRestoreKeys": [],
+          "matchedKey": null,
+          "hitKind": "miss",
+          "sourceRef": "unknown",
+          "buildkit": {
+            "done": 56,
+            "cached": 0,
+            "error": 0,
+            "imported": true,
+            "exported": true
+          }
+        }
+      ],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 1830
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep1-github-baseline",
+    "inputFingerprint": "7f0313b07fb5fded9bcd12f5160e513339e0812824e24e3e066a246122f84e38",
+    "runIds": [
+      43975787586,
+      43975787401
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep1-github-baseline/tests.json",
+        "sha256": "6805ea6a99625eb76a47f1edd2988ca1fe88c55067c624194decf7f4e65a857e",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-github-baseline/cache.json",
+        "sha256": "c195273da4073440f3f52a018a61202a1f78b6704537d032c172423c016845d7",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-github-baseline/coverage.json",
+        "sha256": "c05102b3bd5b06ff8815e238dcce0ab258b0a40619aeecb1e99ed49540344c7d",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/ci.yml",
+          ".github/workflows/docker-publish.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/reset-credits.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/update-contributors.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/ci.yml",
+            "workflowName": "CI",
+            "jobId": "test",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-24.04-4core",
+              "starsling": "ubuntu-24.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker-publish.yml",
+            "workflowName": "Build and Publish Docker Image",
+            "jobId": "test",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-24.04-4core",
+              "starsling": "ubuntu-24.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker-publish.yml",
+            "workflowName": "Build and Publish Docker Image",
+            "jobId": "build-and-push",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "ubuntu-24.04-4core",
+              "starsling": "ubuntu-24.04-4core",
+              "retainedOnGitHub": true,
+              "kind": "unmapped"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/ci.yml#test",
+          ".github/workflows/docker-publish.yml#test",
+          ".github/workflows/docker-publish.yml#build-and-push"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "image-test-gate",
+        "lint",
+        "release-image:linux/amd64",
+        "release-image:linux/arm64",
+        "unit-tests"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/docker-publish.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/ci.yml#test": 1,
+        ".github/workflows/docker-publish.yml#test": 1,
+        ".github/workflows/docker-publish.yml#build-and-push": 1
+      },
+      "observedCommands": [
+        "RUN npm ci",
+        "RUN npm install --no-save prisma@6.19 dotenv",
+        "RUN npm run build",
+        "npm ci",
+        "npm run lint",
+        "npm test"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "ci/lint:eslint",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/npm-ci",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-categories.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-prompt-trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-tags.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-users.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-team-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/collection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-flag.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-operations.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comments.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/health.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/improve-prompt.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/leaderboard.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-bots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-handler.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-server.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/pin.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-bot-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-connections.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-feature.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-unlist.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompts-id.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/register.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/reports.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/search.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-notifications.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-profile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/versions.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/bot-page-slug-redirect.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/listing-layouts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/prompts-list-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/sitemap.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-computer-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-form-computer.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-pairing-picker.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-teams-graph-card.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/chip-list-diff.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/connector-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/copy-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/create-menu.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/discovery-prompts.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/featured-teams.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/header-nav.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/injected-action-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/spacefast-widget.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/structured-data.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/upvote-ui.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/hooks/use-debounce.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/hooks/use-mobile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/action-buttons.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/auth/provider-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-computer-requirement.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-platforms.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-slug-lookup.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-upsert.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/change-snapshots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/connector-registry.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/date.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/format.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/hf-data-studio.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/list-diff.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/listing-pagination.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/mcp-client-config.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/github.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/oauth.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/oidc.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/prompt-access.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/prompt-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/related-content.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/seo.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/similarity.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/skill-files.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/slug.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/team-graph-widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/urls.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/utils.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/variable-detection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/webhook.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/works-best-with.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/components/book/elements/harness-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/components/book/elements/tools-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:total",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "deps:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "deps:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/npm-ci",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-categories.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-prompt-trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-tags.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-users.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-team-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/collection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-flag.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-operations.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comments.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/health.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/improve-prompt.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/leaderboard.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-bots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-handler.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-server.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/pin.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-bot-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-connections.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-feature.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-unlist.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompts-id.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/register.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/reports.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/search.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-notifications.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-profile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/versions.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/bot-page-slug-redirect.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/listing-layouts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/prompts-list-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/sitemap.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-computer-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-form-computer.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-pairing-picker.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-teams-graph-card.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/chip-list-diff.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/connector-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/copy-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/create-menu.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/discovery-prompts.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/featured-teams.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/header-nav.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/injected-action-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/spacefast-widget.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/structured-data.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/upvote-ui.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/hooks/use-debounce.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/hooks/use-mobile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/action-buttons.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/auth/provider-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-computer-requirement.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-platforms.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-slug-lookup.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-upsert.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/change-snapshots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/connector-registry.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/date.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/format.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/hf-data-studio.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/list-diff.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/listing-pagination.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/mcp-client-config.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/github.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/oauth.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/oidc.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/prompt-access.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/prompt-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/related-content.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/seo.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/similarity.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/skill-files.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/slug.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/team-graph-widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/urls.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/utils.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/variable-detection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/webhook.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/works-best-with.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/components/book/elements/harness-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/components/book/elements/tools-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:total",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "next-build:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "next-build:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "prisma-cli:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "prisma-cli:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 203,
+          "total": 203,
+          "percentage": 100
+        },
+        "scopeHash": "7b98d0c4863b7995bce02527e88132528b9643fbcc73fcd5084bc21973eb236e"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep1-github-baseline",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "1dc18fd955e8fdc9da3542ab3a4b3b2c2b2c6dd4",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [
+        {
+          "cacheKey": "buildkit-gha",
+          "requestedRestoreKeys": [],
+          "matchedKey": null,
+          "hitKind": "miss",
+          "sourceRef": "unknown",
+          "buildkit": {
+            "done": 56,
+            "cached": 0,
+            "error": 0,
+            "imported": true,
+            "exported": true
+          }
+        }
+      ],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 3275
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep1-starsling-patched",
+    "inputFingerprint": "7f0313b07fb5fded9bcd12f5160e513339e0812824e24e3e066a246122f84e38",
+    "runIds": [
+      43985985998,
+      43985986017
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-patched/tests.json",
+        "sha256": "6805ea6a99625eb76a47f1edd2988ca1fe88c55067c624194decf7f4e65a857e",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-patched/cache.json",
+        "sha256": "04d0c433164b966581db9893812f8c516a14492bd0027ab4ff42e61102940f85",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep1-starsling-patched/coverage.json",
+        "sha256": "c05102b3bd5b06ff8815e238dcce0ab258b0a40619aeecb1e99ed49540344c7d",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/ci.yml",
+          ".github/workflows/docker-publish.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/reset-credits.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/update-contributors.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/ci.yml",
+            "workflowName": "CI",
+            "jobId": "test",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker-publish.yml",
+            "workflowName": "Build and Publish Docker Image",
+            "jobId": "test",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker-publish.yml",
+            "workflowName": "Build and Publish Docker Image",
+            "jobId": "build-and-push",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/ci.yml#test",
+          ".github/workflows/docker-publish.yml#test",
+          ".github/workflows/docker-publish.yml#build-and-push"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "image-test-gate",
+        "lint",
+        "release-image:linux/amd64",
+        "release-image:linux/arm64",
+        "unit-tests"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/docker-publish.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/ci.yml#test": 1,
+        ".github/workflows/docker-publish.yml#test": 1,
+        ".github/workflows/docker-publish.yml#build-and-push": 1
+      },
+      "observedCommands": [
+        "RUN npm ci",
+        "RUN npm install --no-save prisma@6.19 dotenv",
+        "RUN npm run build",
+        "npm ci",
+        "npm run lint",
+        "npm test"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "ci/lint:eslint",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/npm-ci",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-categories.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-prompt-trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-tags.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-users.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-team-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/collection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-flag.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-operations.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comments.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/health.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/improve-prompt.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/leaderboard.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-bots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-handler.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-server.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/pin.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-bot-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-connections.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-feature.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-unlist.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompts-id.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/register.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/reports.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/search.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-notifications.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-profile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/versions.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/bot-page-slug-redirect.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/listing-layouts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/prompts-list-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/sitemap.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-computer-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-form-computer.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-pairing-picker.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-teams-graph-card.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/chip-list-diff.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/connector-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/copy-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/create-menu.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/discovery-prompts.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/featured-teams.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/header-nav.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/injected-action-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/spacefast-widget.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/structured-data.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/upvote-ui.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/hooks/use-debounce.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/hooks/use-mobile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/action-buttons.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/auth/provider-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-computer-requirement.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-platforms.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-slug-lookup.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-upsert.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/change-snapshots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/connector-registry.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/date.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/format.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/hf-data-studio.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/list-diff.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/listing-pagination.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/mcp-client-config.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/github.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/oauth.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/oidc.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/prompt-access.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/prompt-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/related-content.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/seo.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/similarity.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/skill-files.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/slug.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/team-graph-widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/urls.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/utils.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/variable-detection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/webhook.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/works-best-with.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/components/book/elements/harness-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/components/book/elements/tools-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:total",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "deps:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "deps:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/npm-ci",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-categories.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-prompt-trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-tags.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-users.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-team-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/collection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-flag.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-operations.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comments.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/health.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/improve-prompt.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/leaderboard.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-bots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-handler.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-server.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/pin.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-bot-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-connections.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-feature.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-unlist.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompts-id.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/register.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/reports.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/search.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-notifications.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-profile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/versions.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/bot-page-slug-redirect.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/listing-layouts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/prompts-list-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/sitemap.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-computer-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-form-computer.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-pairing-picker.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-teams-graph-card.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/chip-list-diff.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/connector-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/copy-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/create-menu.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/discovery-prompts.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/featured-teams.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/header-nav.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/injected-action-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/spacefast-widget.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/structured-data.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/upvote-ui.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/hooks/use-debounce.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/hooks/use-mobile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/action-buttons.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/auth/provider-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-computer-requirement.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-platforms.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-slug-lookup.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-upsert.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/change-snapshots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/connector-registry.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/date.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/format.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/hf-data-studio.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/list-diff.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/listing-pagination.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/mcp-client-config.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/github.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/oauth.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/oidc.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/prompt-access.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/prompt-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/related-content.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/seo.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/similarity.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/skill-files.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/slug.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/team-graph-widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/urls.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/utils.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/variable-detection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/webhook.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/works-best-with.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/components/book/elements/harness-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/components/book/elements/tools-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:total",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "next-build:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "next-build:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "prisma-cli:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "prisma-cli:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 203,
+          "total": 203,
+          "percentage": 100
+        },
+        "scopeHash": "7b98d0c4863b7995bce02527e88132528b9643fbcc73fcd5084bc21973eb236e"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep1-starsling-patched",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "1dc18fd955e8fdc9da3542ab3a4b3b2c2b2c6dd4",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [
+        {
+          "cacheKey": "buildkit-gha",
+          "requestedRestoreKeys": [],
+          "matchedKey": null,
+          "hitKind": "miss",
+          "sourceRef": "unknown",
+          "buildkit": {
+            "done": 55,
+            "cached": 0,
+            "error": 0,
+            "imported": true,
+            "exported": true
+          }
+        }
+      ],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 1544
+    }
+  },
+  {
+    "sampleId": "full-1-main-push-cold-rep2-starsling-patched",
+    "inputFingerprint": "7f0313b07fb5fded9bcd12f5160e513339e0812824e24e3e066a246122f84e38",
+    "runIds": [
+      43991649954,
+      43991649971
+    ],
+    "sources": [
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-patched/tests.json",
+        "sha256": "6805ea6a99625eb76a47f1edd2988ca1fe88c55067c624194decf7f4e65a857e",
+        "kind": "tests",
+        "format": "json-verdicts"
+      },
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-patched/cache.json",
+        "sha256": "b6defbd85ac7f4765cab34fb7628f08be3cc21bf2025cf99fab61474d0f9e150",
+        "kind": "cache"
+      },
+      {
+        "path": "full-1-main-push-cold-rep2-starsling-patched/coverage.json",
+        "sha256": "c05102b3bd5b06ff8815e238dcce0ab258b0a40619aeecb1e99ed49540344c7d",
+        "kind": "coverage",
+        "format": "units"
+      }
+    ],
+    "execution": {
+      "inventory": {
+        "scenarioName": "main-push",
+        "triggeredWorkflows": [
+          ".github/workflows/ci.yml",
+          ".github/workflows/docker-publish.yml"
+        ],
+        "excludedWorkflows": [
+          {
+            "filePath": ".github/workflows/reset-credits.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          },
+          {
+            "filePath": ".github/workflows/update-contributors.yml",
+            "reason": "Scheduled/manual workflow excluded unless requested or required as a seed dependency"
+          }
+        ],
+        "downstreamWorkflowRuns": [],
+        "jobExpectations": [
+          {
+            "workflowFile": ".github/workflows/ci.yml",
+            "workflowName": "CI",
+            "jobId": "test",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker-publish.yml",
+            "workflowName": "Build and Publish Docker Image",
+            "jobId": "test",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          },
+          {
+            "workflowFile": ".github/workflows/docker-publish.yml",
+            "workflowName": "Build and Publish Docker Image",
+            "jobId": "build-and-push",
+            "triggeredBy": "direct",
+            "expectedStatus": "executed",
+            "isDynamicMatrix": false,
+            "mappedRunsOn": {
+              "github": "starsling-ubuntu-24.04",
+              "starsling": "starsling-ubuntu-24.04",
+              "retainedOnGitHub": true,
+              "kind": "unmapped",
+              "retentionReason": "Unmapped runner \"starsling-ubuntu-24.04\" retained on original label"
+            }
+          }
+        ],
+        "mixedRunnerOnStarSling": false,
+        "movedJobs": [],
+        "retainedJobs": [
+          ".github/workflows/ci.yml#test",
+          ".github/workflows/docker-publish.yml#test",
+          ".github/workflows/docker-publish.yml#build-and-push"
+        ],
+        "blockers": [],
+        "nativeConditions": []
+      },
+      "semanticObligationsFulfilled": [
+        "image-test-gate",
+        "lint",
+        "release-image:linux/amd64",
+        "release-image:linux/arm64",
+        "unit-tests"
+      ],
+      "executedWorkflows": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/docker-publish.yml"
+      ],
+      "executedMatrixRowCounts": {
+        ".github/workflows/ci.yml#test": 1,
+        ".github/workflows/docker-publish.yml#test": 1,
+        ".github/workflows/docker-publish.yml#build-and-push": 1
+      },
+      "observedCommands": [
+        "RUN npm ci",
+        "RUN npm install --no-save prisma@6.19 dotenv",
+        "RUN npm run build",
+        "npm ci",
+        "npm run lint",
+        "npm test"
+      ],
+      "jobOutputs": {},
+      "tests": [
+        {
+          "testId": "ci/lint:eslint",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/npm-ci",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-categories.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-prompt-trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-tags.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/admin-users.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-team-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/collection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-flag.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-operations.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comment-vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/comments.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/health.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/improve-prompt.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/leaderboard.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-bots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-handler.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-server.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/mcp-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/pin.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-bot-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-connections.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-feature.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompt-unlist.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompts-id.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/register.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/reports.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/search.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-notifications.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/user-profile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/versions.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/api/vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/bot-page-slug-redirect.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/listing-layouts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/prompts-list-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/app/sitemap.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-computer-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-form-computer.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-pairing-picker.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/bot-teams-graph-card.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/chip-list-diff.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/connector-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/copy-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/create-menu.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/discovery-prompts.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/featured-teams.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/header-nav.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/injected-action-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/spacefast-widget.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/structured-data.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/components/upvote-ui.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/hooks/use-debounce.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/hooks/use-mobile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/action-buttons.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/auth/provider-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-computer-requirement.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-platforms.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-slug-lookup.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/bot-upsert.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/change-snapshots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/connector-registry.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/date.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/format.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/hf-data-studio.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/list-diff.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/listing-pagination.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/mcp-client-config.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/github.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/oauth.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/auth/oidc.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/plugins/widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/prompt-access.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/prompt-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/related-content.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/seo.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/similarity.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/skill-files.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/slug.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/team-graph-widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/urls.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/utils.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/variable-detection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/webhook.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/__tests__/lib/works-best-with.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/components/book/elements/harness-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:src/components/book/elements/tools-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "ci/vitest:total",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "deps:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "deps:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/npm-ci",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-categories.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-prompt-trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-tags.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/admin-users.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-team-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/collection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-flag.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-operations.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comment-vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/comments.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/health.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/improve-prompt.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/leaderboard.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-bots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-handler.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-server.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/mcp-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/pin.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-bot-changes.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-connections.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-feature.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompt-unlist.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompts-id.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/prompts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/register.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/reports.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/search.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-notifications.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/user-profile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/versions.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/api/vote.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/bot-page-slug-redirect.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/listing-layouts.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/prompts-list-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/app/sitemap.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-computer-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-form-computer.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-pairing-picker.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/bot-teams-graph-card.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/chip-list-diff.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/connector-badge.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/copy-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/create-menu.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/discovery-prompts.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/featured-teams.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/header-nav.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/injected-action-button.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/spacefast-widget.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/structured-data.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/components/upvote-ui.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/hooks/use-debounce.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/hooks/use-mobile.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/action-buttons.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/api-key.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/auth/provider-metadata.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-computer-requirement.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-pairings.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-platforms.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-slug-lookup.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-teams.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/bot-upsert.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/change-snapshots.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/connector-registry.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/date.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/format.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/hf-data-studio.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/list-diff.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/listing-pagination.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/mcp-client-config.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/github.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/oauth.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/auth/oidc.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/plugins/widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/prompt-access.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/prompt-list.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/related-content.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/seo.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/similarity.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/skill-files.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/slug.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/team-graph-widgets.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/trending.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/urls.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/utils.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/variable-detection.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/webhook.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/__tests__/lib/works-best-with.test.ts",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/components/book/elements/harness-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:src/components/book/elements/tools-demo.test.tsx",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image-gate/vitest:total",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "image:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "next-build:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "next-build:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "prisma-cli:linux/amd64",
+          "verdict": "passed",
+          "mode": "executed"
+        },
+        {
+          "testId": "prisma-cli:linux/arm64",
+          "verdict": "passed",
+          "mode": "executed"
+        }
+      ],
+      "coverage": {
+        "lines": {
+          "covered": 203,
+          "total": 203,
+          "percentage": 100
+        },
+        "scopeHash": "7b98d0c4863b7995bce02527e88132528b9643fbcc73fcd5084bc21973eb236e"
+      }
+    },
+    "cache": {
+      "sampleId": "full-1-main-push-cold-rep2-starsling-patched",
+      "profile": {
+        "name": "cold",
+        "actionsCache": "cold",
+        "crossRunArtifacts": "none",
+        "restoreExpectations": {},
+        "testResultReuseAllowed": false
+      },
+      "expectedSourceSha": "1dc18fd955e8fdc9da3542ab3a4b3b2c2b2c6dd4",
+      "consumerRef": "refs/heads/main",
+      "defaultBranch": "showcase",
+      "cacheEvents": [
+        {
+          "cacheKey": "buildkit-gha",
+          "requestedRestoreKeys": [],
+          "matchedKey": null,
+          "hitKind": "miss",
+          "sourceRef": "unknown",
+          "buildkit": {
+            "done": 53,
+            "cached": 0,
+            "error": 0,
+            "imported": true,
+            "exported": true
+          }
+        }
+      ],
+      "inventoryVerified": true,
+      "coldSeedTotalSeconds": 0,
+      "warmSampleTotalSeconds": 1108
+    }
+  }
+]

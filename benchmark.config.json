@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "f/prompts.chat",
+    "commitSha": "1dc18fd955e8fdc9da3542ab3a4b3b2c2b2c6dd4",
+    "defaultBranch": "main"
+  },
+  "benchmarkRepository": {
+    "repository": "starsling-demo-org/benchmark-prompts.chat",
+    "controlBranch": "bench/control",
+    "defaultBranch": "showcase",
+    "replayBranch": "main"
+  },
+  "scenarios": {
+    "main-push": {
+      "name": "main-push",
+      "description": "Merge of 1dc18fd955e8 to main",
+      "event": "push",
+      "main": {
+        "branch": "main",
+        "beforeSha": "5b1850d2b86c826447e4253b5048fe63652b74de",
+        "afterSha": "1dc18fd955e8fdc9da3542ab3a4b3b2c2b2c6dd4",
+        "changedPaths": [
+          "src/content/book/27-tools-mcp-connectors.mdx",
+          "src/content/book/ar/27-tools-mcp-connectors.mdx",
+          "src/content/book/az/27-tools-mcp-connectors.mdx",
+          "src/content/book/de/27-tools-mcp-connectors.mdx",
+          "src/content/book/el/27-tools-mcp-connectors.mdx",
+          "src/content/book/es/27-tools-mcp-connectors.mdx",
+          "src/content/book/fa/27-tools-mcp-connectors.mdx",
+          "src/content/book/fr/27-tools-mcp-connectors.mdx",
+          "src/content/book/he/27-tools-mcp-connectors.mdx",
+          "src/content/book/it/27-tools-mcp-connectors.mdx",
+          "src/content/book/ja/27-tools-mcp-connectors.mdx",
+          "src/content/book/ko/27-tools-mcp-connectors.mdx",
+          "src/content/book/nl/27-tools-mcp-connectors.mdx",
+          "src/content/book/pt/27-tools-mcp-connectors.mdx",
+          "src/content/book/ru/27-tools-mcp-connectors.mdx",
+          "src/content/book/tr/27-tools-mcp-connectors.mdx",
+          "src/content/book/zh/27-tools-mcp-connectors.mdx"
+        ]
+      },
+      "referenceRuns": [
+        {
+          "workflowPath": ".github/workflows/ci.yml",
+          "runId": 41604056150,
+          "attempt": 1,
+          "htmlUrl": "https://github.com/f/prompts.chat/actions/runs/41604056150"
+        },
+        {
+          "workflowPath": ".github/workflows/docker-publish.yml",
+          "runId": 41604056190,
+          "attempt": 1,
+          "htmlUrl": "https://github.com/f/prompts.chat/actions/runs/41604056190"
+        }
+      ]
+    },
+    "seed-parent": {
+      "name": "seed-parent",
+      "role": "seed",
+      "description": "Warm seed: the previous push (5b1850d2b86c onto f64e7baad0e4)",
+      "event": "push",
+      "main": {
+        "branch": "main",
+        "beforeSha": "f64e7baad0e4f9de693e238a8948c08e26810568",
+        "afterSha": "5b1850d2b86c826447e4253b5048fe63652b74de",
+        "changedPaths": [
+          "PROMPTS.md",
+          "prompts.csv"
+        ]
+      },
+      "referenceRuns": []
+    }
+  },
+  "patches": [
+    {
+      "id": "stack-0",
+      "source": "local",
+      "pathOrUrl": "patches/stack-0.patch",
+      "description": "levers stacked in order: 01-strict-build-platform"
+    }
+  ],
+  "runnerMapping": {
+    "defaultMap": {
+      "ubuntu-latest": {
+        "github": "ubuntu-24.04-4core",
+        "starsling": "starsling-ubuntu-24.04"
+      },
+      "ubuntu-24.04": {
+        "github": "TODO-github-larger-runner-for-ubuntu-24.04",
+        "starsling": "starsling-ubuntu-24.04"
+      },
+      "ubuntu-26.04": {
+        "github": "TODO-github-larger-runner-for-ubuntu-26.04",
+        "starsling": "starsling-ubuntu-26.04"
+      },
+      "ubuntu-slim": {
+        "github": "TODO-github-larger-runner-for-ubuntu-slim",
+        "starsling": "starsling-ubuntu-24.04-2"
+      }
+    },
+    "runnerSpecs": {
+      "ubuntu-latest": {
+        "label": "ubuntu-latest",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.016
+      },
+      "ubuntu-24.04": {
+        "label": "ubuntu-24.04",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.016
+      },
+      "ubuntu-26.04": {
+        "label": "ubuntu-26.04",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.016
+      },
+      "ubuntu-slim": {
+        "label": "ubuntu-slim",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 1,
+        "ramGiB": 5,
+        "billingPerMinuteUsd": 0.004
+      },
+      "starsling-ubuntu-24.04-2": {
+        "label": "starsling-ubuntu-24.04-2",
+        "provider": "starsling",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 2,
+        "ramGiB": 8,
+        "billingPerMinuteUsd": 0.004
+      },
+      "starsling-ubuntu-24.04": {
+        "label": "starsling-ubuntu-24.04",
+        "provider": "starsling",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.008
+      },
+      "starsling-ubuntu-26.04": {
+        "label": "starsling-ubuntu-26.04",
+        "provider": "starsling",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.008
+      },
+      "macos-latest": {
+        "label": "macos-latest",
+        "provider": "github",
+        "os": "macos",
+        "arch": "arm64",
+        "vcpu": 3,
+        "ramGiB": 7,
+        "billingPerMinuteUsd": 0.08
+      },
+      "windows-latest": {
+        "label": "windows-latest",
+        "provider": "github",
+        "os": "windows",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.032
+      },
+      "TODO-github-larger-runner-for-ubuntu-latest": {
+        "label": "TODO-github-larger-runner-for-ubuntu-latest",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.016
+      },
+      "TODO-github-larger-runner-for-ubuntu-24.04": {
+        "label": "TODO-github-larger-runner-for-ubuntu-24.04",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.016
+      },
+      "TODO-github-larger-runner-for-ubuntu-26.04": {
+        "label": "TODO-github-larger-runner-for-ubuntu-26.04",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.016
+      },
+      "TODO-github-larger-runner-for-ubuntu-slim": {
+        "label": "TODO-github-larger-runner-for-ubuntu-slim",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 1,
+        "ramGiB": 5,
+        "billingPerMinuteUsd": 0.004
+      },
+      "ubuntu-24.04-4core": {
+        "label": "ubuntu-24.04-4core",
+        "provider": "github",
+        "os": "linux",
+        "arch": "x64",
+        "vcpu": 4,
+        "ramGiB": 16,
+        "billingPerMinuteUsd": 0.016
+      }
+    }
+  },
+  "profiles": {
+    "cold": {
+      "name": "cold",
+      "actionsCache": "cold",
+      "crossRunArtifacts": "none",
+      "restoreExpectations": {},
+      "testResultReuseAllowed": false
+    },
+    "warm": {
+      "name": "warm",
+      "actionsCache": "warm",
+      "crossRunArtifacts": "seeded",
+      "seedScenario": "seed-parent",
+      "restoreExpectations": {},
+      "testResultReuseAllowed": true,
+      "amortizationHorizonRuns": 10
+    }
+  },
+  "adaptations": [
+    {
+      "id": "no-registry-login",
+      "kind": "workflow-setting",
+      "workflowFile": ".github/workflows/docker-publish.yml",
+      "jobId": "build-and-push",
+      "fromPattern": "",
+      "toReplacement": "",
+      "expectedMatches": 0,
+      "setPath": [
+        "steps",
+        3,
+        "if"
+      ],
+      "setValue": false,
+      "reason": "docker-publish.yml#build-and-push 'Log in to Container Registry' has no if: upstream; the login only serves the push, and nothing may be published from the benchmark repo. Off in every configuration. Step index 3 = upstream step 2 + the harness step at index 0.",
+      "blocksFullParity": true
+    },
+    {
+      "id": "no-image-push",
+      "kind": "workflow-setting",
+      "workflowFile": ".github/workflows/docker-publish.yml",
+      "jobId": "build-and-push",
+      "fromPattern": "",
+      "toReplacement": "",
+      "expectedMatches": 0,
+      "setPath": [
+        "steps",
+        5,
+        "with",
+        "push"
+      ],
+      "setValue": false,
+      "reason": "docker-publish.yml#build-and-push 'Build and push Docker image' has push: true with no upstream condition; it would publish ghcr.io/<owner>/prompts.chat. Set to false in every configuration: both platform builds and the gha cache read/write still run in full; only the final registry upload is skipped (timed-path change, disclosed in kit.md). Step index 5 = upstream step 4 + the harness step at index 0.",
+      "blocksFullParity": true
+    }
+  ],
+  "collectors": [],
+  "execution": {
+    "repetitions": 5,
+    "timeoutMinutes": 90,
+    "maxConcurrentExperiments": 1,
+    "pollIntervalSeconds": 15,
+    "apiBudgetPerHour": 252,
+    "maxJobQueueSeconds": 30,
+    "publicRepoGitHubFree": true,
+    "commitIdentity": {
+      "name": "starsling-dev",
+      "email": "290538643+starsling-dev@users.noreply.github.com"
+    }
+  },
+  "instrumentation": true
+}

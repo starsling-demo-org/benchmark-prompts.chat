@@ -1,0 +1,52 @@
+{
+ "at": "2026-11-17T02:53:00.166Z",
+ "switchAt": "2026-11-16T17:25:00.000Z",
+ "rule": "owner 2026-11-16 12:46 PST: StarSling samples count only with the RAM disk (tmpfs) on every StarSling runner",
+ "verdicts": {
+  "full-2-main-push-cold-rep1-starsling-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep1-github-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep1-starsling-patched": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep2-starsling-patched": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep5-github-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep5-starsling-patched": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep5-starsling-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep4-starsling-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep4-starsling-patched": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep4-github-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep3-starsling-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep3-starsling-patched": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep3-github-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep2-starsling-baseline": {
+   "ok": true
+  },
+  "full-2-main-push-cold-rep2-github-baseline": {
+   "ok": true
+  }
+ }
+}

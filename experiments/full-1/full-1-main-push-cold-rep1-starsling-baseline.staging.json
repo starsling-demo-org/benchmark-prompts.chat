@@ -1,0 +1,60 @@
+{
+  "experimentId": "full-1",
+  "sampleId": "full-1-main-push-cold-rep1-starsling-baseline",
+  "scenarioName": "main-push",
+  "variant": "starsling-baseline",
+  "profileName": "cold",
+  "currentStep": "completed",
+  "completedSteps": [
+    "1_acquire_lease",
+    "2_register_placeholders",
+    "3_disable_workflows_and_reset_refs",
+    "4_install_and_verify_trees",
+    "5_enable_scenario_workflows",
+    "6_trigger_event",
+    "7_await_downstream_completion"
+  ],
+  "controlBranch": "bench/control",
+  "defaultBranch": "showcase",
+  "benchmarkOwnedRefs": [
+    "refs/heads/main",
+    "refs/heads/showcase",
+    "refs/heads/bench/pr/main-push/head"
+  ],
+  "previousBenchmarkRefs": {
+    "refs/heads/main": null,
+    "refs/heads/showcase": "997c56da86c5b529de02595750f0f6fc442d60d4",
+    "refs/heads/bench/pr/main-push/head": null
+  },
+  "observedUnrelatedRefs": {
+    "refs/heads/bench/control": "8ed1a69a4150470f7378a1f968f03172501ea902",
+    "refs/heads/starsling/develop": "147e1530144541206bb881dc3d12ae428643e04f"
+  },
+  "registeredPlaceholderWorkflows": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/docker-publish.yml",
+    ".github/workflows/reset-credits.yml",
+    ".github/workflows/update-contributors.yml"
+  ],
+  "disabledWorkflows": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/docker-publish.yml",
+    ".github/workflows/reset-credits.yml",
+    ".github/workflows/update-contributors.yml"
+  ],
+  "enabledWorkflows": [
+    ".github/workflows/ci.yml",
+    ".github/workflows/docker-publish.yml"
+  ],
+  "updatedAt": "2026-11-16T22:46:22.262Z",
+  "leaseAcquiredAt": "2026-11-16T21:56:30.189Z",
+  "leaseHolder": "full-1:full-1-main-push-cold-rep1-starsling-baseline",
+  "installedTreeHash": "3e35473091f6525394e18c2d3b636046d589511746097856cbdb11d7d6f76219",
+  "dispatchRecord": {
+    "idempotencyKey": "full-1:full-1-main-push-cold-rep1-starsling-baseline:main-push:starsling-baseline",
+    "dispatchedAt": "2026-11-16T22:15:24.508Z",
+    "event": "push",
+    "targetRef": "refs/heads/main",
+    "headSha": "e5cd9bd381942b57cce6f8e74ccddd85eb852dff"
+  }
+}
